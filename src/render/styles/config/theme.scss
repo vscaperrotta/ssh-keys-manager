@@ -1,0 +1,16 @@
+:root {
+  --global-background-color: #fff;
+  --global-text-color: #333;
+
+  --test: red;
+}
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     // Global
+//     --global-background-color: #333;
+//     --global-text-color: #fff;
+
+//     --test: lime;
+//   }
+// }

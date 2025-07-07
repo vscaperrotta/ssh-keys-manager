@@ -1,0 +1,85 @@
+/**
+ *
+ * ModalDetail Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 07-Jul-2025
+*/
+
+.modal-detail {
+
+  .modal-detail__header {
+    align-items: center;
+    border-bottom: .063rem solid #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+
+    h6 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+  .modal-detail__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .modal-detail__render-value {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+
+    label {
+      color: #333;
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      word-break: break-all;
+
+      &.publicKey {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      &.expanded {
+        -webkit-line-clamp: none;
+        line-clamp: none;
+      }
+    }
+
+    .modal-detail__rende-value-button {
+      align-items: center;
+      background-color: #eee;
+      border: .5rem;
+      border: none;
+      display: flex;
+      justify-content: center;
+      height: 1.25rem;
+      padding: .25rem;
+
+      &:hover {
+        background-color: #ddd;
+        cursor: pointer;
+      }
+    }
+
+  }
+}

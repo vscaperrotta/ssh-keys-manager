@@ -1,0 +1,31 @@
+/**
+ *
+ * Header Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 25-Jun-2025
+*/
+
+.header__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .header__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .header__cards-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+  }
+}

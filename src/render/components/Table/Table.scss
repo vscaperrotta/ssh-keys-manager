@@ -1,0 +1,71 @@
+/**
+ *
+ * Table Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 25-Jun-2025
+*/
+
+.table__container {
+  display: flex;
+  overflow-x: auto;
+  position: relative;
+  width: 100%;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+    thead {
+      border-bottom: .063rem solid #ccc;
+      border-top: .063rem solid #ccc;
+
+      tr {
+        // background-color: #ccc;
+      }
+
+      .table__header-name {
+        color: #888;
+        font-weight: 700;
+      }
+    }
+
+    tbody {}
+
+    tr {
+      border-bottom: .036rem solid #ccc;
+    }
+
+    th {
+      padding: 1rem;
+      text-align: left;
+    }
+
+    td {
+      padding: 1rem;
+      text-align: left;
+
+      span {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .table__name {
+    align-items: center;
+    display: flex;
+    gap: .5rem;
+    font-weight: 700;
+  }
+
+  .table__status {
+    display: flex;
+  }
+
+  .table__actions {
+    display: flex;
+    gap: 1rem;
+  }
+}

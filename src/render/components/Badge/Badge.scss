@@ -1,0 +1,36 @@
+/**
+ *
+ * Badge Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 07-Jul-2025
+*/
+
+.badge {
+  align-items: center;
+  background-color: #007BFF;
+  border-radius: 1rem;
+  color: #fff;
+  display: flex;
+  font-size: .6rem;
+  font-weight: 900;
+  gap: .5rem;
+  padding: .5rem .75rem;
+  transition: all .2s ease-in-out;
+  text-align: center;
+  text-transform: uppercase;
+  width: fit-content;
+  white-space: nowrap;
+
+  &--primary {
+    background-color: #007BFF;
+    color: #fff;
+  }
+
+  &--secondary {
+    background-color: #eee;
+    color: #333;
+  }
+}
