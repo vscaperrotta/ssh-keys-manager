@@ -8,6 +8,9 @@
 
 A modern desktop application for managing SSH keys with ease. Built with React and Electron, this tool provides a user-friendly interface to create, view, and delete SSH key pairs on your system.
 
+
+<p align="center"><img src="docs/screenshot.png" height="250"></p>
+
 ## Table of Contents
 
 - [SSH Keys Manager](#ssh-keys-manager)
@@ -65,7 +68,7 @@ cd ssh-manager
 Install all dependencies and start electron view
 
 ```bash
-yarn install && yarn electron:dev
+yarn install && yarn electron:serve
 ```
 
 If everything works, you should see the homepage
