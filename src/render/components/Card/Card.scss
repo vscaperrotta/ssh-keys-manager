@@ -9,19 +9,21 @@
 */
 
 .card__container {
+  border: .063rem solid #ccc;
+  border-radius: .5rem;
   display: flex;
   flex-direction: column;
   gap: .5rem;
+  padding: 1.5em;
   width: 100%;
 
   .card__label {
     color: #888;
-    font-size: .8rem;
-    font-weight: 500;
+    font-size: var(--label-font-size);
   }
 
   .card__value {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.875rem;
+    font-weight: 500;
   }
 }

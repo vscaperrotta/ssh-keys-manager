@@ -8,3 +8,60 @@
  * @since 07-Jul-2025
 */
 
+.modal-new-key {
+  &__content {
+    padding: 1rem 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-weight: 500;
+      color: #333;
+    }
+
+    input,
+    select {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: .8rem;
+
+      &:focus {
+        border-color: #0066cc;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+      }
+    }
+
+    small {
+      color: #666;
+      font-size: 0.8rem;
+    }
+  }
+
+  &__error {
+    background-color: #ffebee;
+    color: #d32f2f;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #d32f2f;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+}

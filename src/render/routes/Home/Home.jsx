@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios";
 import { Plus } from 'react-feather';
-// import { doExample } from '@store/actions/home';
-// import { nullSafe } from '@utils/globalMethods';
+import { useIntl } from 'react-intl';
 import Header from '@components/Header';
 import Button from '@components/Button';
 import Table from '@components/Table';
@@ -20,68 +18,108 @@ const Home = () => {
   const [openModal, setOpenModal] = useState({});
   const [detail, setDetail] = useState({});
   const [search, setSearch] = useState('');
+  const intl = useIntl();
 
   useEffect(() => {
     fetchKeys();
   }, []);
 
   async function fetchKeys() {
-    const res = await axios.get("http://localhost:5000/keys");
+    try {
+      const res = await axios.get("http://localhost:5001/keys");
 
-    const keys = res.data.keys
-      .map(key => ({
-        ...key,
-        creation: new Date(key.creation).toDateString(),
-        file: key.file.replace(/^.*[\\\/]/, '')
-      }));
-
-    console.log(keys)
-
-    setKeys(keys);
+      const keys = res.data.keys
+        .map(key => ({
+          ...key,
+          creation: new Date(key.creation).toDateString(),
+          file: key.file.replace(/^.*[\\\/]/, '')
+        }));
+      setKeys(keys);
+    } catch (error) {
+      console.error("Error during the keys fetch:", error);
+      setKeys([]);
+    }
   };
 
-  // This method open the details modal
   function handleShowModal(type, id) {
     setOpenModal({
       [type]: !openModal[type]
     })
 
-    if (type === 'details') {
+    if (type === 'details' || type === 'delete') {
       setDetail(keys.find(key => key.id === id))
     }
+  }
+
+  function handleKeyDelete(deletedId) {
+    setKeys(keys.filter(key => key.id !== deletedId));
   }
 
   function handleChange(e) {
     setSearch(e.target.value);
   }
 
+  function handleReset() {
+    setSearch('');
+    fetchKeys();
+  }
+
   return (
     <div className="home__container">
-      <Header keys={keys} />
+      <div className="home__header-container">
+        <Header
+          title={intl.formatMessage({ id: 'app.title' })}
+          subtitle={intl.formatMessage({ id: 'header.subtitle' })}
+          cards={[
+            {
+              label: intl.formatMessage({ id: 'header.totalKeys' }, { count: keys.length }),
+              type: 'total'
+            },
+            {
+              label: intl.formatMessage({ id: 'status.complete' }),
+              type: 'complete'
+            },
+            {
+              label: 'Private',
+              type: 'private'
+            }
+          ]}
+          keys={keys}
+        />
+      </div>
       <div className='home__search-bar'>
-        <SearchBar onChange={(event) => handleChange(event)} />
+        <SearchBar
+          onChange={(event) => handleChange(event)}
+          onReset={(event) => handleReset(event)}
+          value={search}
+          placeholder={intl.formatMessage({ id: 'home.search.placeholder' })}
+          resetButtonLabel={intl.formatMessage({ id: 'searchbar.reset' })}
+        />
         <Button
-          label='Create New Key'
+          label={intl.formatMessage({ id: 'home.createNewKey' })}
           onClick={() => handleShowModal('new')}
-          type='secondary'
-          icon={<Plus />}
+          type='primary'
+          icon={<Plus size={16} />}
         />
       </div>
       <Divider />
       <main>
         <Table
           headers={[
-            'Name',
-            'Type',
-            'File',
-            'Notes',
-            'Status',
-            'Creation',
-            'Actions'
+            intl.formatMessage({ id: 'table.name' }),
+            intl.formatMessage({ id: 'table.type' }),
+            intl.formatMessage({ id: 'table.file' }),
+            intl.formatMessage({ id: 'table.notes' }),
+            intl.formatMessage({ id: 'table.status' }),
+            intl.formatMessage({ id: 'table.creation' }),
+            intl.formatMessage({ id: 'table.actions' })
           ]}
           sshKeys={keys.some(key => key.file.includes(search)) ? keys.filter(key => key.file.includes(search)) : keys}
           onClickDetails={(id) => handleShowModal('details', id)}
           onClickDelete={(id) => handleShowModal('delete', id)}
+          noKeysMessage={intl.formatMessage({ id: 'table.noKeys' })}
+          detailsButtonLabel={intl.formatMessage({ id: 'app.details' })}
+          deleteButtonLabel={intl.formatMessage({ id: 'app.delete' })}
         />
       </main>
       <ModalDetail
@@ -92,23 +130,26 @@ const Home = () => {
       <ModalDeleteKey
         isOpen={openModal['delete']}
         onClose={() => handleShowModal(null)}
-        detail={detail}
+        keyData={detail}
+        onDelete={handleKeyDelete}
       />
       <ModalNewKey
         isOpen={openModal['new']}
         onClose={() => handleShowModal(null)}
-        detail={detail}
+        onKeyCreated={() => fetchKeys()}
       />
     </div>
   );
 }
 
 Home.propTypes = {
-  // Add here some propTypes
+  locale: PropTypes.string,
+  setLocale: PropTypes.func
 };
 
 Home.defaultProps = {
-  // Add here some default propTypes values
+  locale: 'it',
+  setLocale: () => { }
 };
 
 export default Home;

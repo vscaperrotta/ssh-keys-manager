@@ -1,17 +1,21 @@
 // electron-main.js
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
+const pkgJson = require('../../package.json');
 
 let win;
 
 function createWindow() {
   win = new BrowserWindow({
+    icon: path.join(__dirname, '../../build/icon.png'),
+    title: pkgJson.displayName,
+    resizable: true,
     width: 1366,
     height: 820,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
-      // preload: path.join(__dirname, '../preload/index.js'),
+      preload: path.join(__dirname, '../preload/index.js'),
     },
   });
 

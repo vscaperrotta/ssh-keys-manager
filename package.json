@@ -20,7 +20,17 @@
     "build": "better-npm-run build",
     "electron:serve": "better-npm-run electron:serve",
     "electron:build": "better-npm-run electron:build",
-    "electron:start": "wait-on tcp:5173 && electron ."
+    "electron:start": "wait-on http://localhost:5173 && electron ."
+  },
+  "scriptsComments": {
+    "generate": "Generates new components, routes, and actions using plop templates",
+    "dev:client": "Starts the React client application in development mode",
+    "dev:server": "Starts the Express server in development mode",
+    "dev:storybook": "Runs Storybook for component development and documentation",
+    "build": "Builds the application for production",
+    "electron:serve": "Runs the application in Electron during development",
+    "electron:build": "Builds the Electron application for distribution",
+    "electron:start": "Starts Electron after the development server is ready"
   },
   "betterScripts": {
     "dev:client": {
@@ -60,7 +70,21 @@
       }
     }
   },
-  "proxy": "http://localhost:5000",
+  "build": {
+    "appId": "ssh-keys-manager",
+    "mac": {
+      "icon": "./build/icon.png",
+      "category": "ssh.keys.manager.category.type"
+    },
+    "files": [
+      "./build/**/*",
+      "./dist/**/*",
+      "./node_modules/**/*",
+      "./public/**/*",
+      "*.js"
+    ]
+  },
+  "proxy": "http://localhost:5001",
   "browserslist": {
     "development": [
       "last 1 chrome version",
@@ -71,6 +95,7 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
+    "@electron/packager": "^18.3.6",
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.10.0",
     "cors": "^2.8.5",
@@ -90,6 +115,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-feather": "^2.0.10",
+    "react-intl": "^7.1.11",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.1",
     "storybook": "^8.5.0",

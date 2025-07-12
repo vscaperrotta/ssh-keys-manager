@@ -12,7 +12,7 @@ const config = {
   docs: {
     autodocs: 'tag',
   },
-  staticDirs: ['../public'],
+  staticDirs: ['../public', '../build'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

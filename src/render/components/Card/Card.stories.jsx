@@ -1,6 +1,7 @@
 
 import { fn } from "@storybook/test";
 import Card from './Card';
+import StoriesWrapper from '@components/StoriesWrapper';
 
 export const ActionsData = {
 };
@@ -17,13 +18,26 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Another description, overriding the comments'
+        component: 'Card component displays a label-value pair in a styled container.'
       }
     }
   }
 };
 
-export const Default = {
-  args: {
-  },
+const Template = (args, { globals: { locale } }) => (
+  <StoriesWrapper>
+    <Card {...args} />
+  </StoriesWrapper>
+);
+
+export const Default = Template.bind({});
+Default.args = {
+  label: 'Card Label',
+  value: 'Card Value'
+};
+
+export const WithLongContent = Template.bind({});
+WithLongContent.args = {
+  label: 'SSH Key Path',
+  value: '/Users/username/.ssh/id_rsa.pub'
 };

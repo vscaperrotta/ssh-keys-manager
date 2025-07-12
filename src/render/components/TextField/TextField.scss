@@ -1,0 +1,59 @@
+/**
+ *
+ * TextField Styles
+ *
+ * @version 1.0.0
+ *
+ * @author vittorioscaperrotta
+ * @since 12-Jul-2025
+*/
+
+.textfield__container {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  width: 100%;
+
+  .textfield__label {
+    font-size: var(--label-font-size);
+    font-weight: var(--label-font-weight);
+  }
+
+  .textfield__value {
+    font-size: var(--value-font-size);
+    font-weight: var(--value-font-weight);
+    line-height: var(--value-line-height);
+    word-break: break-all;
+
+    &.publicKey {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    &.expanded {
+      -webkit-line-clamp: none;
+      line-clamp: none;
+    }
+  }
+
+  .textfield__render-value-button {
+    align-items: center;
+    background-color: #eee;
+    border: .5rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    height: 1.25rem;
+    padding: .25rem;
+    width: fit-content;
+
+    &:hover {
+      background-color: #ddd;
+      cursor: pointer;
+    }
+  }
+}

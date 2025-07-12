@@ -1,6 +1,54 @@
 import { Meta } from '@storybook/blocks';
+import packageJson from '../../../package.json';
+import appIcon from '../../../build/icon.png';
 
 <Meta title="Base/Introduction" />
 
-# Introduction
-Type here your intro and infos
+<div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4rem' }}>
+  <img src={appIcon} alt="SSH Keys Manager Logo" width="64" height="64" />
+</div>
+
+# {packageJson.displayName} - Component Library
+
+## Introduction
+
+Welcome to the SSH Keys Manager component library! This Storybook instance documents all the reusable UI components used in our application. SSH Keys Manager is a modern desktop application built with React and Electron that provides a user-friendly interface for managing SSH key pairs on your system.
+
+## About SSH Keys Manager
+
+SSH Keys Manager makes it easy to:
+- Create new SSH key pairs with customizable options
+- View key details, including public and private key information
+- Delete unwanted SSH keys with confirmation
+- Search for keys by name or content
+- Use the application in English or Italian with automatic language detection
+
+## Component Library
+
+This component library serves as both documentation and a development environment for our UI components. You can:
+- Browse all available components
+- See components in different states and variations
+- View component props and how to use them
+- Test components interactively
+- Copy code snippets for implementation
+
+## Technologies
+
+Our application and component library are built with:
+- **React** - UI library
+- **SCSS** - Styling
+- **Vite** - Build tool
+- **Electron** - Desktop application framework
+- **React-Intl** - Internationalization
+
+## Getting Started
+
+Explore the components in the sidebar to see what's available. Each component has:
+- A visual preview
+- Documentation of props and usage
+- Different states and variations where applicable
+- Code samples
+
+## Development
+
+Last updated: 11 July 2025 - Version: {packageJson.version} - Author: {packageJson.author}

@@ -1,8 +1,11 @@
 
 import { fn } from "@storybook/test";
 import SearchBar from './SearchBar';
+import StoriesWrapper from '@components/StoriesWrapper';
 
 export const ActionsData = {
+  onChange: fn(),
+  onReset: fn()
 };
 
 export default {
@@ -17,13 +20,34 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Another description, overriding the comments'
+        component: 'Search bar component with input field and reset button for filtering content.'
       }
     }
   }
 };
 
-export const Default = {
-  args: {
-  },
+const Template = (args) => {
+  return (
+    <StoriesWrapper>
+      <SearchBar {...args} />
+    </StoriesWrapper>
+  );
+};
+
+export const Default = Template.bind({});
+Default.args = {
+  onChange: ActionsData.onChange,
+  onReset: ActionsData.onReset,
+  value: '',
+  placeholder: 'Search...',
+  resetButtonLabel: 'Reset'
+};
+
+export const WithValue = Template.bind({});
+WithValue.args = {
+  onChange: ActionsData.onChange,
+  onReset: ActionsData.onReset,
+  value: 'id_rsa',
+  placeholder: 'Search...',
+  resetButtonLabel: 'Clear'
 };

@@ -1,5 +1,6 @@
 
 import { fn } from "@storybook/test";
+import StoriesWrapper from '@components/StoriesWrapper';
 import {{properCase componentName}} from './{{properCase componentName}}';
 
 export const ActionsData = {
@@ -7,7 +8,7 @@ export const ActionsData = {
 };
 
 export default {
-  component: {{properCase componentName}},
+  component: {{properCase componentName}}
   title: 'Components/{{properCase componentName}}',
   tags: ['autodocs'],
   //👇 Our exports that end in "Data" are not stories.
@@ -24,8 +25,13 @@ export default {
   }
 };
 
-export const Default = {
-  args: {
+const Template = (args, { globals: { locale } }) => (
+  <StoriesWrapper>
+    <{{properCase componentName}} {...args} />
+  </StoriesWrapper>
+);
+
+export const Default = Template.bind({});
+Default.args = {
     {{!-- Props here... --}}
-  },
 };

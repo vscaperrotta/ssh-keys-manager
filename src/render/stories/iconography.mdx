@@ -1,6 +1,147 @@
 import { Meta, IconGallery, IconItem } from '@storybook/blocks';
+import { Plus, X, Eye, Trash2, Key, MoreHorizontal, Search, RefreshCw, ArrowRight, ExternalLink, Download, Shield } from 'react-feather';
 
 <Meta title="System/Iconography" />
 
 # Iconography
-Config base on project necessities
+
+SSH Keys Manager uses [Feather Icons React](https://github.com/feathericons/react-feather) for consistent, clean, and minimalist iconography throughout the application. Feather Icons is an open source collection of simply beautiful icons designed at 24x24 with an emphasis on consistency and simplicity.
+
+## Installation
+
+```bash
+# Using npm
+npm install react-feather
+
+# Using yarn
+yarn add react-feather
+```
+
+## Usage
+
+To use Feather icons in your components:
+
+```jsx
+// Import the icons you need
+import { Eye, Trash2, Plus } from 'react-feather';
+
+// Use them in your JSX
+function MyComponent() {
+  return (
+    <div>
+      <Eye size={18} color="#333" /> View details
+      <Trash2 size={18} color="red" /> Delete item
+      <Plus size={18} /> Add new
+    </div>
+  );
+}
+```
+
+## Properties
+
+Feather icons accept the following props:
+
+<div className="sb-unstyled" style={{overflowX: 'auto'}}>
+  <table style={{width: '100%', borderCollapse: 'collapse', marginBottom: '20px'}}>
+    <thead>
+      <tr>
+        <th style={{textAlign: 'left', padding: '8px', borderBottom: '2px solid #ddd'}}>Prop</th>
+        <th style={{textAlign: 'left', padding: '8px', borderBottom: '2px solid #ddd'}}>Type</th>
+        <th style={{textAlign: 'left', padding: '8px', borderBottom: '2px solid #ddd'}}>Default</th>
+        <th style={{textAlign: 'left', padding: '8px', borderBottom: '2px solid #ddd'}}>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}><code>size</code></td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>number | string</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>24</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>Width and height of the icon</td>
+      </tr>
+      <tr>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}><code>color</code></td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>string</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>'currentColor'</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>Color of the icon</td>
+      </tr>
+      <tr>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}><code>strokeWidth</code></td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>number | string</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>2</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>Thickness of the stroke</td>
+      </tr>
+      <tr>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}><code>className</code></td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>string</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>-</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>Additional CSS classes</td>
+      </tr>
+      <tr>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}><code>onClick</code></td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>function</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>-</td>
+        <td style={{padding: '8px', borderBottom: '1px solid #ddd'}}>Click handler for the icon</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Icons in use
+
+Below are examples of the Feather icons used in SSH Keys Manager:
+
+<IconGallery>
+  <IconItem name="Plus - Add new item">
+    <Plus size={24} />
+  </IconItem>
+  <IconItem name="X - Close modal">
+    <X size={24} />
+  </IconItem>
+  <IconItem name="Eye - View details">
+    <Eye size={24} />
+  </IconItem>
+  <IconItem name="Trash2 - Delete key">
+    <Trash2 size={24} />
+  </IconItem>
+  <IconItem name="Key - SSH Key">
+    <Key size={24} />
+  </IconItem>
+  <IconItem name="MoreHorizontal - Additional options">
+    <MoreHorizontal size={24} />
+  </IconItem>
+  <IconItem name="Search - Search functionality">
+    <Search size={24} />
+  </IconItem>
+  <IconItem name="RefreshCw - Reset/Refresh">
+    <RefreshCw size={24} />
+  </IconItem>
+</IconGallery>
+
+## Additional Useful Icons
+
+These icons are available in the library and may be useful for future development:
+
+<IconGallery>
+  <IconItem name="ArrowRight - Navigation">
+    <ArrowRight size={24} />
+  </IconItem>
+  <IconItem name="ExternalLink - Open external resource">
+    <ExternalLink size={24} />
+  </IconItem>
+  <IconItem name="Download - Download key">
+    <Download size={24} />
+  </IconItem>
+  <IconItem name="Shield - Security">
+    <Shield size={24} />
+  </IconItem>
+</IconGallery>
+
+## Best Practices
+
+When using icons in the SSH Keys Manager application:
+
+1. **Consistency**: Use the same icon for the same action across the application
+2. **Size**: Maintain consistent sizing - typically 18px for inline icons and 24px for standalone icons
+3. **Color**: Use colors that align with the application's color system
+4. **Accessibility**: Always pair icons with text labels or aria-labels for screen readers
+5. **Spacing**: Allow sufficient spacing around icons for clear visual distinction

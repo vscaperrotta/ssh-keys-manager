@@ -2,15 +2,21 @@
   --global-background-color: #fff;
   --global-text-color: #333;
 
-  --test: red;
+
+  // Fonts
+  --label-font-size: .75rem;
+
+  // Fields
+  --label-font-weight: 600;
+  --value-font-size: 1rem;
+  --value-font-weight: 400;
+  --value-line-height: 1.5rem;
 }
 
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     // Global
-//     --global-background-color: #333;
-//     --global-text-color: #fff;
-
-//     --test: lime;
-//   }
-// }
+@media (prefers-color-scheme: dark) {
+  :root {
+    // Global
+    --global-background-color: #fff;
+    --global-text-color: #333;
+  }
+}

@@ -8,3 +8,26 @@
  * @since 07-Jul-2025
 */
 
+.modal-delete-key {
+  &__content {
+    padding: 1rem 0;
+  }
+
+  &__details {
+    margin-bottom: 1rem;
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 4px;
+
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+
+  &__actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+}
