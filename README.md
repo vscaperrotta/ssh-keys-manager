@@ -71,6 +71,12 @@ Install all dependencies and start electron view
 yarn install && yarn electron:serve
 ```
 
+To have your build
+
+```bash
+yarn install && yarn electron:build
+```
+
 If everything works, you should see the homepage
 
 While developing, you will probably rely mostly on `yarn electron:serve`; however, there are additional scripts at your disposal:
